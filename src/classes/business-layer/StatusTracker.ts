@@ -12,7 +12,7 @@ export enum TrackingTarget {
 @Injectable()
 export class StatusTracker {
 
-    private static checkInterval = 5000; //1 min in milis 
+    private static checkInterval = 60000; //1 min in milis 
 
     public statusHistory: Status[] = [];
 
@@ -21,7 +21,7 @@ export class StatusTracker {
     ) {
     }
 
-    //TODO: there seems to be a bug somewhere here, didn't have time to fix it
+    //TODO: there seems to be a bug somewhere here, probably with the injection, but I didn't have time to fix it
     public startTracking(target: TrackingTarget): Observable<Status[]> {
         //create obserable that gives status updates
         return new Observable<Status[]>(observer => {
